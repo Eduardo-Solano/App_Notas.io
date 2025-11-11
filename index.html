@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App de Notas</title>
+    <link rel="stylesheet" href="estilos.css" />
+  </head>
+  <body>
+    <main>
+      <div class="barra-superior">
+        <header>
+          <nav>
+            <ul>
+              <li><h2>Docker</h2></li>
+              <li class="buscar-nota">
+                <button>
+                  <img src="img/icon-search.png"  class="icono-buscar" alt="" />
+                </button>
+                <input type="text" class="input-buscar"/>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <div class="barra-lateral">
+        <div class="c-btn">
+          <button id="btn-nueva-nota">
+            <img src="img/icon-plusW.png" class="plusImg" alt="" />
+          </button>
+        </div>
+         <!-- Opciones de color (inicialmente ocultas) -->
+    <div id="opciones-color" style="display: none;">
+        <button class="color-btn" data-color="#FFD89C"></button>
+        <button class="color-btn" data-color="#FFA07A"></button>
+        <button class="color-btn" data-color="#DDA0DD"></button>
+        <button class="color-btn" data-color="#87CEEB"></button>
+        <button class="color-btn" data-color="#98D8C8"></button>
+        <button class="color-btn" data-color="#F7DC6F"></button>
+    </div>
+      </div>
+      <div class="contenido-principal">
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background: #e0e0e0;
+}
+
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    min-height: 100vh;
+    background: #f0f0f0;
+    margin: 40px;
+    border-radius: 15px;
+}
+
+.barra-superior {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav ul {
+    margin: 5px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+    gap: 10px;
+}
+
+li h2 {
+    margin-left: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #333;
+}
+
+.buscar-nota button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 1;
+}
+
+.icono-buscar {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+}
+
+
+/* Contenedor con posición relativa */
+.buscar-nota {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-left: 120px;
+}
+/* Input con padding a la izquierda para el icono */
+.input-buscar {
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 40px; /* Espacio para el icono */
+    padding-right: 10px;
+    font-size: 14px;
+    background: white;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-buscar:focus {
+    border-color: #4a90e2;
+}
+
+.input-buscar::placeholder {
+    color: #999;
+}
+
+/* Contenedor barra lateral */
+.barra-lateral {
+    width: 80px;
+    height: calc(100vh-80px);
+    background: #f7f7f7;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.barra-lateral .c-btn button {
+    margin-top: 20px;
+    border-radius: 50px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+}
+
+.plusImg {
+    width: 40px;
+    height: 40px;
+}
+
+.barra-lateral button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.barra-lateral button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+/* Contenedor de opciones de color */
+#opciones-color {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Botones de color */
+.color-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Animación de entrada */
+.color-btn.show {
+    animation: slideDown 0.4s ease-out forwards;
+}
+
+@keyframes slideDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Colores específicos */
+.color-btn[data-color="#FFD89C"] {
+    background-color: #FFD89C;
+}
+
+.color-btn[data-color="#FFA07A"] {
+    background-color: #FFA07A;
+}
+
+.color-btn[data-color="#DDA0DD"] {
+    background-color: #DDA0DD;
+}
+
+.color-btn[data-color="#87CEEB"] {
+    background-color: #87CEEB;
+}
+
+.color-btn[data-color="#98D8C8"] {
+    background-color: #98D8C8;
+}
+
+.color-btn[data-color="#F7DC6F"] {
+    background-color: #F7DC6F;
+}
+
+/* Animación de salida */
+.color-btn.hide {
+    animation: slideUp 0.3s ease-in forwards;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.contenido-principal {
+    width: 80%;
+    min-height: calc(100vh - 60px);
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    align-content: start;
+    margin: 40px 0 20px 60px;
+}
+.contenido-principal div {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+}
+
+/* Animación específica para nuevas notas */
+.nueva-nota-animacion {
+    animation: slideInFromLeft 0.4s ease-out !important;
+}
+/* Opción 3: Con escala y deslizamiento */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.nota-texto {
+    width: 100%;
+    height: 140px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.fecha {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    color: #555;
+    opacity: 0.7;
+}
+
+.editar-nota{
+    position: absolute;
+    bottom: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    background-color: #006eec;
+    color: white;
+}
+
+.editar-nota:hover {
+    opacity: 1;
+}
+
+.guardar-nota{
+    position: absolute;
+    bottom: 10px;
+    right: 80px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    background-color: #28a745;
+    color: white;
+}
+
+.guardar-nota:hover {
+    opacity: 1;
+}
+
+.eliminar-nota{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    background-color: #dc3545;
+    color: white;
+}
+
+.eliminar-nota:hover {
+    opacity: 1;
+}
+
